@@ -203,19 +203,19 @@ body {
 .flower-container {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding: 40px 24px 28px;
+  padding: 38px 24px 26px;
   overflow: visible;
   z-index: 1;
 }
 
 .flower {
   position: relative;
-  width: 220px;
+  width: 210px;
   height: 260px;
   transform-origin: center bottom;
-  animation: idle-sway 4.2s ease-in-out infinite;
+  animation: idle-sway 5s ease-in-out infinite;
 }
 
 @keyframes idle-sway {
@@ -231,11 +231,11 @@ body {
 .petal {
   position: absolute;
   width: 86px;
-  height: 140px;
+  height: 120px;
   background: radial-gradient(circle at 30% 18%, var(--flower-petal-light), var(--flower-petal));
   border-radius: 999px 999px 40px 40px;
-  transform-origin: 50% 85%;
-  top: 34px;
+  transform-origin: 50% 90%;
+  top: 6px;
   left: 50%;
   margin-left: -43px;
   box-shadow:
@@ -243,6 +243,7 @@ body {
     0 0 20px rgba(255, 111, 181, 0.7) inset;
   opacity: 0;
   animation: petal-bloom 1.4s cubic-bezier(0.2, 0.9, 0.3, 1.4) forwards;
+  z-index: 2;
 }
 
 .petal::after {
@@ -256,14 +257,14 @@ body {
 
 @keyframes petal-bloom {
   0% {
-    transform: scale(0.15) translateY(40px);
+    transform: scale(0.15) translateY(50px);
     opacity: 0;
   }
   40% {
     opacity: 1;
   }
   100% {
-    transform: scale(1) rotate(var(--angle)) translateY(0);
+    transform: scale(1) rotate(var(--angle)) translateY(-10px);
     opacity: 1;
   }
 }
@@ -303,18 +304,19 @@ body {
 
 .flower-center {
   position: absolute;
-  width: 92px;
-  height: 92px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 25%, #fffbe3, var(--flower-center));
-  top: 78px;
+  top: 56px;
   left: 50%;
-  margin-left: -46px;
+  margin-left: -41px;
   box-shadow:
     0 0 0 6px rgba(255, 255, 255, 0.16),
     0 0 32px rgba(255, 230, 109, 0.7),
     0 14px 22px rgba(0, 0, 0, 0.65);
   animation: center-pulse 2.3s ease-in-out infinite;
+  z-index: 3;
 }
 
 @keyframes center-pulse {
@@ -338,10 +340,10 @@ body {
 .stem {
   position: absolute;
   width: 10px;
-  height: 180px;
+  height: 210px;
   background: linear-gradient(to bottom, #62e690, var(--stem));
   left: 50%;
-  bottom: 22px;
+  bottom: 0;
   margin-left: -5px;
   border-radius: 999px;
   box-shadow:
@@ -349,6 +351,7 @@ body {
     0 18px 24px rgba(0, 0, 0, 0.8);
   transform-origin: center top;
   animation: stem-grow 1.4s ease-out 0.1s both;
+  z-index: 1;
 }
 
 @keyframes stem-grow {
@@ -366,13 +369,14 @@ body {
   height: 50px;
   border-radius: 0 100px 0 100px;
   background: radial-gradient(circle at 10% 10%, #c7ffd8, var(--leaf));
-  bottom: 90px;
+  bottom: 46px;
   transform-origin: 0 50%;
   box-shadow:
     0 6px 12px rgba(0, 0, 0, 0.55),
     0 0 18px rgba(58, 194, 107, 0.8);
   opacity: 0;
   animation: leaf-grow 1.2s ease-out forwards;
+  z-index: 2;
 }
 
 .leaf::after {

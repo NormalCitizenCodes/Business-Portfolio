@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animatedParts.forEach((el) => {
       el.style.animation = "none";
-      // force reflow
+      // force reflow so the browser restarts the animation
       // eslint-disable-next-line no-unused-expressions
       el.offsetHeight;
       el.style.animation = "";
@@ -21,9 +21,4 @@ document.addEventListener("DOMContentLoaded", () => {
   bloomBtn.addEventListener("click", () => {
     restartAnimation();
   });
-
-  // nice little entrance delay
-  setTimeout(() => {
-    flower.classList.add("flower-ready");
-  }, 80);
 });
